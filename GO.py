@@ -1,6 +1,7 @@
 '''
 install goatools = easy_install goatools
 fasta file with sequences = UP000006737.fasta
+http://nbviewer.jupyter.org/urls/dessimozlab.github.io/go-handbook/GO%20Tutorial%20in%20Python%20-%20Solutions.ipynb
 '''
 
 '''
