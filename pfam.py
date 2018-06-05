@@ -33,6 +33,15 @@ uniprot
 entry
 keyword
 .text
+
+
+
+uniprot
+entry
+go_terms
+category
+term
+go_id ="" 
 """
 
 
