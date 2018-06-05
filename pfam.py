@@ -28,6 +28,11 @@ QUERY = Accession
 PROGRAM = ?
 DATABASE = ?
 https://www.uniprot.org/help/api_retrieve_entries
+
+uniprot
+entry
+keyword
+.text
 """
 
 
