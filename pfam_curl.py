@@ -5,7 +5,6 @@ import os, subprocess, xmltodict, json, csv, time, ast
 
 def get_results(url):
     command = "curl -LH 'Expect:' 'https://pfam.xfam.org" + url +"'"
-    print("command : ", command)
     output = os.popen(command).read()
     result = json.dumps(xmltodict.parse(output))
     info = {}
@@ -13,7 +12,7 @@ def get_results(url):
     info['accession'] = temp_result['@accession']
     info['type'] = temp_result['@type']
     info['class'] = temp_result['@class']
-    return temp_result
+    return result
 
 def search(seq):
     with open("out.txt", 'w') as outf:
@@ -38,13 +37,10 @@ with open("pfam_info", 'w') as outfile:
             if j>1:
                 r_url = search(temp)
                 time.sleep(200)
-                try:
-                    info = get_results(r_url)
-                    protien = {str(j) : info}
-                    outfile.write(json.dumps(info))
-                    print(info)
-                except:
-                    protien = {str(j): 'None'}
+                info = get_results(r_url)
+                protien = {str(j) : info}
+                outfile.write(json.dumps(protien))
+                print(info)
                 temp = ""
         else:
             temp = temp + l
