@@ -7,11 +7,14 @@ def get_results(url):
     command = "curl -LH 'Expect:' 'https://pfam.xfam.org" + url +"'"
     output = os.popen(command).read()
     result = json.dumps(xmltodict.parse(output))
+    result_dict = ast.literal_eval(result)
     info = {}
-    temp_result = result['pfam']['results']['matches']['protein']['database']['match']
+    temp_result = result_dict['pfam']['results']['matches']['protein']['database']['match']
     info['accession'] = temp_result['@accession']
     info['type'] = temp_result['@type']
     info['class'] = temp_result['@class']
+    print('Info: ')
+    print( info)
     return result
 
 def search(seq):
@@ -40,7 +43,6 @@ with open("pfam_info", 'w') as outfile:
                 info = get_results(r_url)
                 protien = {str(j) : info}
                 outfile.write(json.dumps(protien))
-                print(info)
                 temp = ""
         else:
             temp = temp + l
