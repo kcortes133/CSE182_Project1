@@ -7,15 +7,20 @@ def get_results(url):
     command = "curl -LH 'Expect:' 'https://pfam.xfam.org" + url +"'"
     output = os.popen(command).read()
     result = json.dumps(xmltodict.parse(output))
-    result_dict = ast.literal_eval(result)
     info = {}
-    temp_result = result_dict['pfam']['results']['matches']['protein']['database']['match']
-    info['accession'] = temp_result['@accession']
-    info['type'] = temp_result['@type']
-    info['class'] = temp_result['@class']
-    print('Info: ')
-    print( info)
-    return result
+    try:
+        result_dict = ast.literal_eval(result)
+        temp_result = result_dict['pfam']['results']['matches']['protein']['database']['match']
+        info['accession'] = temp_result['@accession']
+        info['type'] = temp_result['@type']
+        info['class'] = temp_result['@class']
+        info['id'] = temp_result['@id']
+        print('Info: ')
+        print( info)
+    except:
+        print('not fast enough')
+        info['results'] = 'none'
+    return info
 
 def search(seq):
     with open("out.txt", 'w') as outf:
@@ -27,13 +32,14 @@ def search(seq):
     return result_dict['jobs']['job']['result_url']
    
 
-with open('UP000006737.fasta', 'r') as inf:
+with open('100seq.fasta', 'r') as inf:
     lines = inf.readlines()
 
 cont = False
 temp = ""
 j = 0
-with open("pfam_info", 'w') as outfile:
+header = ""
+with open("pfam_out_extra.txt", 'w') as outfile:
     for l in lines:
         if '>' in l:
             j+=1
@@ -44,6 +50,7 @@ with open("pfam_info", 'w') as outfile:
                 protien = {str(j) : info}
                 outfile.write(json.dumps(protien))
                 temp = ""
+            header = l
         else:
             temp = temp + l
         if j > 120:
