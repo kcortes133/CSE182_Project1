@@ -20,3 +20,4 @@ none
 none
 none
 none
+{'id': 'Sel1', 'type': 'Pfam-A', 'accession': 'PF08238.11', 'class': 'Repeat'}
