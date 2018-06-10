@@ -1,0 +1,21 @@
+{'id': 'MFS_1', 'type': 'Pfam-A', 'accession': 'PF07690.15', 'class': 'Family'}
+none
+none
+{'id': 'DUF218', 'type': 'Pfam-A', 'accession': 'PF02698.16', 'class': 'Family'}
+none
+none
+none
+{'id': 'MlaC', 'type': 'Pfam-A', 'accession': 'PF05494.11', 'class': 'Family'}
+{'id': 'Coprogen_oxidas', 'type': 'Pfam-A', 'accession': 'PF01218.17', 'class': 'Family'}
+none
+none
+none
+{'id': 'DUF4130', 'type': 'Pfam-A', 'accession': 'PF13566.5', 'class': 'Domain'}
+none 
+{'id': 'PgpA', 'type': 'Pfam-A', 'accession': 'PF04608.12', 'class': 'Family'}
+{'id': 'LysE', 'type': 'Pfam-A', 'accession': 'PF01810.17', 'class': 'Family'}
+{'id': 'Asp_Glu_race', 'type': 'Pfam-A', 'accession': 'PF01177.21', 'class': 'Family'}
+{'id': 'HAD_2', 'type': 'Pfam-A', 'accession': 'PF13419.5', 'class': 'Family'}
+{'id': 'Arginase', 'type': 'Pfam-A', 'accession': 'PF00491.20', 'class': 'Domain'}
+none
+none
